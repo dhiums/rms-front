@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import { ListsIcon, LiveIcon, LocationIcon, TableIcon, UserIcon, UsersIcon } from "@/icons/home";
 import Counts from "./Counts";
 import { CandidatesIcon } from "@/icons/sidebar";
+import Script from "next/script";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import nProgress from "nprogress";
@@ -42,7 +43,7 @@ function First() {
   ]
   return (
     <>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg=="  ></script>
+      <Script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.0/countUp.min.js" integrity="sha512-E0zfDwA1CopT4gzJmj9tMpd7O6pTpuybTK58eY1GwqptdasUohyImuualLt/S5XvM8CDnbaTNP/7MU3bQ5NmQg=="  />
       <div
         className="relative pt-16 pb-32 flex content-center items-center justify-center"
         style={{ minHeight: "75vh" }}

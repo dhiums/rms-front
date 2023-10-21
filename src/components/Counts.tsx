@@ -1,35 +1,33 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import CountUp from 'react-countup';
-import ScrollTrigger   from 'react-scroll-trigger'
-
-
+"use client";
+import React, { Suspense, useEffect, useState } from "react";
+import CountUp from "react-countup";
+import ScrollTrigger from "react-scroll-trigger";
 
 //styling
-import './Count.css';
+import "./Count.css";
 
 const Counts = (props: any) => {
-    // label of counter
-    // number to increment to
-    // duration of count in seconds
-    const { label, number, duration } = props.data
-    const [counterOn, setCounterOn] = useState(false)
+  // label of counter
+  // number to increment to
+  // duration of count in seconds
+  const { label, number, duration } = props.data;
+  const [counterOn, setCounterOn] = useState(false);
 
-    // number displayed by component
-    const [count, setCount] = useState("0")
+  // number displayed by component
+  const [count, setCount] = useState("0");
 
-
-    return (
-
-        // <ScrollTrigger
-        //     onEnter={() => setCounterOn(true)}
-        //     onExit={() => setCounterOn(false)}
-        // >
-            <div className="w-full p-2 ">
-  <div className="flex flex-col px-6 py-4 overflow-hidden bg-white  rounded-xl shadow-lg duration-300  hover:scale-105">
-    <div className="flex flex-row justify-between items-center">
-      <div className="px-2 py-2 bg-gray-300  rounded-xl bg-opacity-30">
-        {/* <svg
+  return (
+    <Suspense>
+      {/* @ts-expect-error Server Component */}
+      <ScrollTrigger
+        onEnter={() => setCounterOn(true)}
+        onExit={() => setCounterOn(false)}
+      >
+        <div className="w-full p-2 ">
+          <div className="flex flex-col px-6 py-4 overflow-hidden bg-white  rounded-xl shadow-lg duration-300  hover:scale-105">
+            <div className="flex flex-row justify-between items-center">
+              <div className="px-2 py-2 bg-gray-300  rounded-xl bg-opacity-30">
+                {/* <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6 "
           viewBox="0 0 20 20"
@@ -46,29 +44,20 @@ const Counts = (props: any) => {
             clipRule="evenodd"
           />
         </svg> */}
-        {props.data.svg}
-      </div>
-      <div className="flex flex-col justify-end items-end">
-
-      <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-12 ">
-      {
-                    // counterOn && 
-                    <CountUp delay={0} end={props.data.number} />
-
-                }
-                +
-    </h1>
-      <p>{props.data.label}</p>
-      </div>
-    </div>
-   
-  </div>
-</div>
-
-
-        // </ScrollTrigger>
-
-    );
-}
+                {props.data.svg}
+              </div>
+              <div className="flex flex-col justify-end items-end">
+                <h1 className="text-3xl sm:text-4xl xl:text-5xl font-bold text-gray-700 mt-12 ">
+                  {counterOn && <CountUp delay={0} end={props.data.number} />}+
+                </h1>
+                <p>{props.data.label}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollTrigger>
+    </Suspense>
+  );
+};
 
 export default Counts;

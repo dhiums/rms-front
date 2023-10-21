@@ -25,7 +25,7 @@ export default function ImgContainer({ photo }: Props) {
                         height={photo.height}
                         sizes="250px"
                         placeholder="blur"
-                        blurDataURL={photo.blurredDataUrl}
+                        // blurDataURL={photo.blurredDataUrl}
                         className="group-hover:opacity-75"
                     />
                 </div>

@@ -9,13 +9,14 @@ import { LiveIcon, TableIcon, UserIcon } from "@/icons/home";
 import { motion } from "framer-motion";
 import NProgress from "nprogress";
 import Countdown from "react-countdown";
+import CountdownTimer from '@/components/CountdownTimer';
 // import "./styles/nprogress.css";
 
 function Description() {
   const router = useRouter();
   const [routerButtonClicked, setRouterButtonClicked] = useState(false);
   NProgress.configure({ showSpinner: false });
-  const day = new Date(2023,10,25) as any
+  // const day = new Date(2023,10,25) as any
 
   useEffect(() => {
     Aos.init({
@@ -33,16 +34,18 @@ function Description() {
     <div className="container mx-auto px-4">
       <div className="flex flex-wrap justify-center text-center mb-24">
         <div className="w-full lg:w-6/12 px-4">
-          <h2 className="text-4xl font-semibold">Here are our heroes</h2>
+        <CountdownTimer />
+          {/* <h2 className="text-4xl font-semibold">Here are our heroes</h2>
           <p className="text-lg leading-relaxed m-4 text-gray-600">
             According to the National Oceanic and Atmospheric Administration,
             Ted, Scambos, NSIDClead scentist, puts the potentially record
             maximum.
-          </p>
+          </p> */}
         </div>
-      {/* <Countdown date={day} /> */}
+      {/* <Countdown date={day} />
+      <CountdownTimer /> */}
       </div>
-      <div className="flex flex-wrap">
+      {/* <div className="flex flex-wrap">
         <div className="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
           <div className="px-6">
             <img
@@ -187,7 +190,7 @@ function Description() {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   </section>
   );
